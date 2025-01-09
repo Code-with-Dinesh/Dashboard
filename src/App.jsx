@@ -1,8 +1,18 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes  } from 'react-router'
+import Header from './components/Header'
+import Dashboard from './components/Dashboard'
 
 const App = () => {
   return (
-    <h1>Dashboard in react</h1>
+    <BrowserRouter>
+    
+     <Routes>
+      <Route path='/' element={<Header/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}/>
+     
+     </Routes>
+    </BrowserRouter>
   )
 }
 
