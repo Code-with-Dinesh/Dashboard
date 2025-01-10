@@ -21,8 +21,10 @@ const App = () => {
         <Sidebar/>
 
           </div>
-        <div>
-          <h1>content</h1>
+        <div className='w-screen overflow-x-hidden '>
+     
+            <Dashboard/>
+          
         </div> 
         </div>
         
