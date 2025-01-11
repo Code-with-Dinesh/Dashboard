@@ -26,7 +26,7 @@ const App = () => {
         <Sidebar toggle={toggle} settoggle={settoggle} togglebar={togglebar} />
 
           </div>
-        <div className={`w-screen ${toggle === false ?'w-[400%]':''} transition-all ease-in overflow-x-hidden `}>
+        <div className={`w-screen ${toggle === false ?'w-[500%]':''} transition-all ease-in overflow-x-hidden `}>
      
             <Dashboard toggle={toggle}/>
           
