@@ -9,7 +9,7 @@ import { FaMessage } from "react-icons/fa6";
 import LockIcon from '@mui/icons-material/Lock';
 import { IoIosNotifications } from "react-icons/io";
 
-const Sidebar = () => {
+const Sidebar = ({toggle}) => {
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
@@ -19,7 +19,9 @@ const Sidebar = () => {
   const toggleInvoice = () => setIsInvoiceOpen(!isInvoiceOpen);
 
   return (
-    <div className="w-64 bg-zinc-200  text-white h-screen p-4">
+    <div  className={`fixed top-16 left-0 h-screen bg-zinc-200 w-64 p-4 transition-transform duration-300 ${
+      toggle ? "transform translate-x-0" : "transform -translate-x-full"
+    }`}>
       <ul>
         {/* Dashboard Section */}
         <li className="flex flex-col mb-4 hover:bg-zinc-300 rounded-md ease-in">

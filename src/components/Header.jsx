@@ -13,11 +13,16 @@ import { GrLanguage } from "react-icons/gr";
 import { IoCartOutline } from "react-icons/io5";
 import { LiaFlagUsaSolid } from "react-icons/lia";
 import { GiSouthAfricaFlag } from "react-icons/gi";
-const Header = () => {
+import { IoMdMenu } from "react-icons/io";
+
+const Header = ({togglebar,toggle}) => {
   const [open, setOpen] = useState(false);
   const [language, setLanguage] = useState(false);
+ 
   const anchorRef = useRef(null);
   const anchorLang = useRef(null);
+
+ 
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -66,14 +71,14 @@ const Header = () => {
   }, [language]);
 
   return (
-    <header className="bg-zinc-400  w-full h-16 flex items-center px-4 lg:px-8">
+    <header className="bg-zinc-400 fixed top-0 z-50 w-full h-16 flex items-center px-4 lg:px-8">
       {/* Brand */}
       <div className="text-xl lg:text-3xl font-bold text-black">HOTASH</div>
 
       {/* Search Bar */}
-      <div className="flex items-center text-black bg-orange-500 ml-4 lg:ml-8 rounded-md flex-grow max-w-md">
-        <div className="p-2 flex items-center justify-center">
-          <MdOutlineMenuOpen size={24} className="text-gray-700" />
+      <div  className={`flex items-center text-black  cursor-pointer bg-sky-300 ml-4 lg:ml-8 rounded-md flex-grow max-w-md`}>
+        <div onClick={togglebar} className="p-2 flex items-center justify-center">
+         {toggle=== true ? <IoMdMenu  size={24} className="text-gray-700 " />: <MdOutlineMenuOpen size={24} className="text-gray-700 " />}
         </div>
         <input
           type="text"

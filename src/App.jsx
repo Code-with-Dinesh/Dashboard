@@ -3,27 +3,32 @@ import { BrowserRouter, Route, Routes  } from 'react-router'
 import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import Sidebar from './components/Sidebar'
-
+import { useState } from 'react'
 const App = () => {
+   const [toggle,settoggle] = useState(true)
+   const togglebar=()=>{
+    settoggle(!toggle)
+    
+  }
   return (
     <BrowserRouter>
-      <div className='sidebarmenu'>
+      <div className='sidebarmenu bg-zinc-300 '>
         <div className='sidebar'>
            
         <Routes>
-      <Route path='/' element={<Header/>}/>
+      <Route path='/' element={<Header toggle={toggle} settoggle={settoggle} togglebar={togglebar}/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
      
          </Routes> 
         </div>
-        <div className='sidewraper flex '>
+        <div className='sidewraper flex  '>
           <div className=' w-64 h-[90vh]'>
-        <Sidebar/>
+        <Sidebar toggle={toggle} settoggle={settoggle} togglebar={togglebar} />
 
           </div>
-        <div className='w-screen overflow-x-hidden '>
+        <div className={`w-screen ${toggle === false ?'w-[400%]':''} transition-all ease-in overflow-x-hidden `}>
      
-            <Dashboard/>
+            <Dashboard toggle={toggle}/>
           
         </div> 
         </div>
